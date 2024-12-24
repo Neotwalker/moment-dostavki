@@ -12,6 +12,24 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	}
 
+	const burgerMenu = document.querySelector('.burger');
+	const headermenu = document.querySelector('.header--mob');
+	const menu = document.querySelector('.header--mob .menu');
+	const menuLink = document.querySelectorAll('.header--mob .menu li a');
+	burgerMenu.addEventListener('click', () => {
+		menu.classList.toggle('active');
+		headermenu.classList.toggle('open')
+		burgerMenu.classList.toggle('active');
+		menuLink.forEach( li => {
+			li.addEventListener('click', (e) => {
+				burgerMenu.classList.remove('active');
+				headermenu.classList.remove('open')
+				menu.classList.remove('active');
+				menu.style.maxHeight = null;
+			});
+		});
+	});
+
 	const select1 = new ItcCustomSelect('#select-1');
 	const select2 = new ItcCustomSelect('#select-2');
 	const select3 = new ItcCustomSelect('#select-3');
